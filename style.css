@@ -18,12 +18,14 @@ h1 {
 
 }
  
- button {
+button {
     color: #016f32;
     width: 150px;
     background: goldenrod;
     padding-top: 5px;
     padding-bottom: 5px;
+    margin: 2px 0px;
     font-weight: bold;
     border: none;
+    border-radius: 2px;
 }
