@@ -1,2 +1,2 @@
 # blackjack
-Building Blackjack game from Scrimba course
+Building Blackjack game from Scrimba Frontend Developer course
