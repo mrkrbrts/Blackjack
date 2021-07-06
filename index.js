@@ -1,23 +1,52 @@
-let firstCard = 9
-let secondCard = 11
-let cards = [firstCard, secondCard]
-let sum = firstCard + secondCard
-let hasBlackJack = false
-let isAlive = true
-let message = ""
+let player = {
+    name: "Mark",
+    chips: 500
+}
 
+let cards = []
+let sum = 0
+
+let hasBlackJack = false
+let isAlive = false
+
+let message = ""
 let messageEl = document.querySelector("#message-el");
 let sumEl = document.querySelector("#sum-el");
 let cardsEl = document.querySelector("#cards-el");
+let playerEl = document.querySelector("#player-el");
+
+playerEl.textContent = `Player ${player.name}: £${player.chips}`;
+
+function getRandomCard() {
+    let randomNumber = Math.ceil(Math.random() * 13)
+    
+    if (randomNumber >= 11) {
+        return 10
+    } else if (randomNumber === 1) {
+        return 11
+    } else {
+        return randomNumber
+    }
+}
 
 function startGame() {
+    isAlive = true;
+    let firstCard = getRandomCard();
+    let secondCard = getRandomCard();
+    cards = [firstCard, secondCard]
+    sum = firstCard + secondCard;
     renderGame();
 }
 
 function renderGame() {
+    cardsEl.textContent = "Cards: "
+    // for loop that renders out all the cards instead of just two
+    for (let i = 0; i < cards.length; i++) {
+        cardsEl.textContent += cards[i] + " "
+    }
+
     // re-render Sum and Cards elements
     sumEl.textContent = `Sum = ${sum}`
-    cardsEl.textContent = `Cards = ${cards[0]} + ${cards[1]}`
 
     // else/if statement to decide Blackjack, and renders out Message
     if (sum <= 20) {
@@ -33,8 +62,12 @@ function renderGame() {
 }
 
 function newCard() {
-    let newCard = 6;
-    sum = sum + newCard;
-    cards.push(newCard)
-    renderGame();
+    if (isAlive === true && hasBlackJack === false) {
+        let card = getRandomCard()
+        sum += card
+        // Push the card to the cards array
+        cards.push(card)
+        console.log(cards)
+        renderGame()
+    }
 }
