@@ -37,8 +37,13 @@ div.card{
     border: 1px solid black;
     margin: 10px auto;
     background-color: white;
-
     border-radius: 5px;
+}
+
+.card-value{
+    color: black;
+    padding-top: 30px;
+    font-size: 30px;
 }
 
 div.inactive {

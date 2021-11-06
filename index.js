@@ -59,7 +59,9 @@ function startGame() {
     sum = firstCard + secondCard;
     cardCount = [card1,card2]
     cardCount[0].style.display="inline-block"
+    cardCount[0].innerHTML=`<div class="card-value">${firstCard}</span>`
     cardCount[1].style.display="inline-block"
+    cardCount[1].innerHTML=`<div class="card-value">${secondCard}</span>`
     count = 2
     renderGame();
     renderButtons();
@@ -104,6 +106,7 @@ function newCard() {
         cards.push(card)
         cardCount.push(allCards[count-1])
         cardCount[count-1].style.display="inline-block"
+        cardCount[count-1].innerHTML=`<div class="card-value">${card}</span>`
         console.log(cards)
         renderGame()
     }
